@@ -1,0 +1,62 @@
+#####################################
+##### ENTWICKLUNGS CACHE   ##########
+#####################################
+[globalVar = TSFE : beUserLogin > 0]
+    config.no_cache = 1
+[global]
+
+page.config.contentObjectExceptionHandler = 0
+
+#####################################
+##### KONFIGURATION SEITEN ##########
+#####################################
+
+config {
+    sendCacheHeaders= 1
+    absRefPrefix = {$baseURL}
+    baseURL = {$baseURL}
+
+	concatenateJs = 0
+	compressJs = 0
+	moveJsFromHeaderToFooter = 1
+
+	concatenateCss = 0
+	compressCss = 0
+	removePageCss = 1
+}
+
+#####################################
+##### KONFIGURATION FLUIDTEMPLATE ###
+#####################################
+
+lib.content = CONTENT
+lib.content {
+    table = tt_content
+    select {
+        orderBy = sorting
+        where = {#colPos}=0
+    }
+}
+
+
+page = PAGE
+page.10 = FLUIDTEMPLATE
+page.10 {
+
+  variables {
+    baseURL = TEXT
+    baseURL.value = {$baseURL}
+
+    pid = TEXT
+    pid.insertData = 1
+		pid.data = TSFE:id
+  }
+
+  templateName = Main
+  templateRootPaths {
+    10 = {$templateName}/Resources/Private/Page/Templates/
+  }
+  partialRootPaths {
+    10 = {$templateName}/Resources/Private/Page/Partials/
+  }
+}

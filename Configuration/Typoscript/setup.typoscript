@@ -1,0 +1,2 @@
+// @import {$templateName}/Configuration/TypoScript/Page/
+@import 'EXT:t3-template/Configuration/TypoScript/Page/'

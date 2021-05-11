@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head></head>
+<body>
+
+
+<div class="container-fluid p-0 m-0">
+    <f:if condition="{data.layout} == 1">
+        <f:then>
+            <div class="pt-4 mx-3">
+                <f:render partial="content" arguments="{_all}" />
+            </div>
+        </f:then>
+        <f:else>
+            <f:render partial="content" arguments="{_all}" />
+        </f:else>
+    
+    </f:if>
+    
+</div>
+
+
+</body>
+</html>
